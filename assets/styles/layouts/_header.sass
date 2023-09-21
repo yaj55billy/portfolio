@@ -1,0 +1,23 @@
+.header 
+  padding: 8px 0
+.nav
+  display: flex
+  justify-content: space-between
+  align-items: center
+  &__brand
+    font-family: $font-family-logo
+    color: white
+    margin-top: 0
+  &__list
+    display: flex
+    list-style: none
+  &__link
+    padding: 4px 6px
+    margin-left: 16px
+    transition: all .5s
+    &:hover, &.active 
+      color: $color-emphasis
+      border-bottom: solid 1px $color-emphasis
+      // 線的動態之後再優化
+  &__toggle
+    display: none

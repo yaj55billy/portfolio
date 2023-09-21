@@ -17,7 +17,8 @@ export default defineNuxtConfig({
       ],
 
       link: [
-        { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css' }
+        { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Itim&family=Noto+Sans+TC:wght@100;400;700&display=swap'}
       ],
       script: [
 
