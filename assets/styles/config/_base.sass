@@ -1,0 +1,82 @@
+*,*::before,*::after 
+	box-sizing: border-box
+
+body, html
+	font-family: $font-family-default
+	font-weight: $font-weight-normal
+	font-size: 16px
+	color: $color-primary
+	line-height: 1.7
+	position: relative
+	+sm 
+		font-size: 15px
+	+xs
+	::selection 
+		// background-color: $color-selection
+
+.h1, h1, .h2, h2, .h3, h3, .h4, h4, .h5, h5, .h6, h6
+	font-weight: $font-weight-bold
+	color: $color-primary
+.h1, h1, .h2, h2, .h3, h3
+	margin-top: 1.75rem
+.h4, h4, .h5, h5, .h6, h6
+	margin-top: 1.25rem
+.h1, h1
+	font-size: $font-size-h1
+.h2, h2
+	font-size: $font-size-h2
+.h3, h3
+	font-size: $font-size-h3
+.h4, h4
+	font-size: $font-size-h4
+.h5, h5
+	font-size: $font-size-h5
+.h6, h6
+	font-size: $font-size-h6
+p 
+	font-size: $font-size-base
+	font-weight: $font-weight-normal
+	color: $color-primary
+	margin-top: .75rem
+strong 
+	font-weight: $font-weight-normal
+	color: $color-primary
+a
+	font-size: $font-size-base
+	font-weight: $font-weight-normal
+	color: $color-primary
+	text-decoration: none
+	cursor: pointer
+	&:hover 
+		// color: $color-emphasis
+span 
+	color: $color-primary
+
+ul, ol 
+	padding-left: 0
+ul 
+	list-style: disc
+ol 
+	list-style: decimal
+li 
+	color: $color-primary
+
+table
+	border-collapse: collapse
+	border-spacing: 0
+
+img
+	max-width: 100%
+	height: auto
+
+hr 
+	margin-top: 3rem
+	margin-bottom: 3rem
+	border: dashed 1px lighten($color-primary, 10%)
+
+button 
+	background: none 
+	border: none
+
+
+
