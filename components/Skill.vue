@@ -1,8 +1,26 @@
-<script setup></script>
+<!-- <script>
+export default {
+	setup() {
+		const childFunc = () => {
+			console.log("childFunc");
+		};
+	},
+};
+</script> -->
+
+<script setup>
+import { ref } from "vue";
+
+const skillComponent = ref(null);
+
+defineExpose({
+	skillComponent,
+});
+</script>
 
 <template>
 	<!--=================== skill ====================-->
-	<section id="skill" class="section skill">
+	<section ref="skillComponent" class="section skill">
 		<div class="container">
 			<div class="section__header">
 				<h2 class="section__title">skill</h2>

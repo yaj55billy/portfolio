@@ -1,8 +1,16 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+
+const heroComponent = ref(null);
+
+defineExpose({
+	heroComponent,
+});
+</script>
 
 <template>
 	<!--=================== Hero ====================-->
-	<section id="hero" class="section hero">
+	<section id="hero" ref="heroComponent" class="section hero">
 		<div class="container">
 			<div class="hero__wrapper">
 				<div class="hero__content">
@@ -14,7 +22,7 @@
 					</p>
 				</div>
 				<div class="hero__avatar">
-					<img src="assets/img/hero.jpg" alt="Billy Ji" class="hero__img" />
+					<!-- <img src="assets/img/hero.jpg" alt="Billy Ji" class="hero__img" /> -->
 				</div>
 			</div>
 		</div>

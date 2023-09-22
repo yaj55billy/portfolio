@@ -1,8 +1,16 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+
+const aboutComponent = ref(null);
+
+defineExpose({
+	aboutComponent,
+});
+</script>
 
 <template>
 	<!--=================== About ====================-->
-	<section class="section about">
+	<section ref="aboutComponent" class="section about">
 		<div class="container">
 			<div class="section__header">
 				<h2 class="section__title">About</h2>
