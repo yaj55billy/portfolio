@@ -1,4 +1,38 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+const props = defineProps({
+	hero: {
+		type: Object,
+	},
+	about: {
+		type: Object,
+	},
+	skill: {
+		type: Object,
+	},
+	experience: {
+		type: Object,
+	},
+	project: {
+		type: Object,
+	},
+	scrollToTarget: {
+		type: Function,
+	},
+});
+const headerHero = ref(null);
+const headerAbout = ref(null);
+const headerSkill = ref(null);
+const headerExperience = ref(null);
+const headerProject = ref(null);
+defineExpose({
+	headerHero,
+	headerAbout,
+	headerSkill,
+	headerExperience,
+	headerProject,
+});
+</script>
 
 <template>
 	<!--=================== Header ====================-->
@@ -9,19 +43,46 @@
 				<div class="nav__menu" id="nav__menu">
 					<ul class="nav__list">
 						<li class="nav__item">
-							<a href="#hero" class="nav__link">Home</a>
+							<a
+								ref="headerHero"
+								class="nav__link"
+								@click.prevent="props.scrollToTarget(props.hero, 'hero')"
+								>Home</a
+							>
 						</li>
 						<li class="nav__item">
-							<a href="#about" class="nav__link">About</a>
+							<a
+								ref="headerAbout"
+								class="nav__link"
+								@click.prevent="props.scrollToTarget(props.about, 'about')"
+								>About</a
+							>
 						</li>
 						<li class="nav__item">
-							<a href="#skill" class="nav__link">Skill</a>
+							<a
+								ref="headerSkill"
+								class="nav__link"
+								@click.prevent="props.scrollToTarget(props.skill, 'skill')"
+								>Skill</a
+							>
 						</li>
 						<li class="nav__item">
-							<a href="#experience" class="nav__link">Experience</a>
+							<a
+								ref="headerExperience"
+								class="nav__link"
+								@click.prevent="
+									props.scrollToTarget(props.experience, 'experience')
+								"
+								>Experience</a
+							>
 						</li>
 						<li class="nav__item">
-							<a href="#project" class="nav__link">Project</a>
+							<a
+								ref="headerProject"
+								class="nav__link"
+								@click.prevent="props.scrollToTarget(props.project, 'project')"
+								>Project</a
+							>
 						</li>
 					</ul>
 				</div>

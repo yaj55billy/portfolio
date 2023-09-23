@@ -1,8 +1,20 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+
+const experienceComponent = ref(null);
+
+defineExpose({
+	experienceComponent,
+});
+</script>
 
 <template>
 	<!--=================== Experience ====================-->
-	<section id="experience" class="section experience">
+	<section
+		ref="experienceComponent"
+		id="experienceComponent"
+		class="section experience"
+	>
 		<div class="container">
 			<div class="section__header">
 				<h2 class="section__title">Experience</h2>
