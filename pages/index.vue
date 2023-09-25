@@ -24,29 +24,40 @@ const scrollToTarget = (targetRef, targetStr) => {
 	}
 };
 
+let observer;
+
 onMounted(() => {
+	const targetToHeaderMap = {
+		heroComponent: header.value.headerHero,
+		aboutComponent: header.value.headerAbout,
+		skillComponent: header.value.headerSkill,
+		experienceComponent: header.value.headerExperience,
+		projectComponent: header.value.headerProject,
+	};
 	const observerCallback = (entries) => {
 		entries.forEach((entry) => {
 			if (entry.isIntersecting) {
-				const targetId = entry.target.id; // 取得區塊 id
-				switch (targetId) {
-					case "heroComponent":
-						header.value.headerHero.classList.add("active");
-					case "aboutComponent":
+				const targetId = entry.target.id;
+				console.log(targetId);
+				const targetHeader = targetToHeaderMap[targetId];
+				if (targetHeader) {
+					console.log("加 class");
+					targetHeader.classList.add("active");
 
-					case "skillComponent":
+					const otherHeaders = Object.values(targetToHeaderMap).filter(
+						(headerItem) => headerItem !== targetHeader
+					);
 
-					case "experienceComponent":
-
-					case "projectComponent":
+					otherHeaders.forEach((headerItem) => {
+						headerItem.classList.remove("active");
+					});
 				}
-			} else {
 			}
 		});
 	};
-	const observerOption = { threshold: 0.75 };
+	const observerOption = { threshold: 0.6 };
 
-	const observer = new IntersectionObserver(observerCallback, observerOption);
+	observer = new IntersectionObserver(observerCallback, observerOption);
 	observer.observe(hero.value.heroComponent);
 	observer.observe(about.value.aboutComponent);
 	observer.observe(skill.value.skillComponent);
@@ -54,6 +65,7 @@ onMounted(() => {
 	observer.observe(project.value.projectComponent);
 });
 onUnmounted(() => {
+	observer.disconnect();
 	observer.unobserve(hero.value.heroComponent);
 	observer.unobserve(about.value.aboutComponent);
 	observer.unobserve(skill.value.skillComponent);

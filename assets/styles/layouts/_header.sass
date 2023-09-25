@@ -18,12 +18,26 @@
     display: flex
     list-style: none
   &__link
-    padding: 4px 6px
+    padding: 4px 6px 
     margin-left: 16px
-    transition: all .5s
+    display: block
+    transition: color .5s
+    overflow: hidden 
+    position: relative
+    &::after
+      content: ''
+      display: block
+      width: 100%
+      position: absolute
+      left: -100%
+      bottom: 0px
+      border-bottom: solid 1px $color-emphasis
+      transition: left .3s
+      
     &:hover, &.active 
       color: $color-emphasis
-      border-bottom: solid 1px $color-emphasis
-      // 線的動態之後再優化
+      &::after
+        left: 0%
+
   &__toggle
     display: none
