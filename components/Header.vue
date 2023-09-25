@@ -19,12 +19,22 @@ const props = defineProps({
 	scrollToTarget: {
 		type: Function,
 	},
+	navBtnActive: {
+		type: Boolean,
+	},
+	navMenuActive: {
+		type: Boolean,
+	},
+	navToggleHandle: {
+		type: Function,
+	},
 });
 const headerHero = ref(null);
 const headerAbout = ref(null);
 const headerSkill = ref(null);
 const headerExperience = ref(null);
 const headerProject = ref(null);
+
 defineExpose({
 	headerHero,
 	headerAbout,
@@ -40,7 +50,11 @@ defineExpose({
 		<div class="container">
 			<nav class="nav">
 				<NuxtLink to="/" class="nav__brand h1">BILLY JI.</NuxtLink>
-				<div class="nav__menu" id="nav__menu">
+				<div
+					class="nav__menu"
+					:class="{ active: props.navMenuActive }"
+					id="nav__menu"
+				>
 					<ul class="nav__list">
 						<li class="nav__item">
 							<a
@@ -86,8 +100,14 @@ defineExpose({
 						</li>
 					</ul>
 				</div>
-				<div class="nav__toggle">
-					<i id="nav-toggle" class="ri-menu-3-line"></i>
+				<div
+					class="nav__toggle"
+					:class="{ active: props.navBtnActive }"
+					@click="props.navToggleHandle"
+				>
+					<span class="nav__toggle__line"></span>
+					<span class="nav__toggle__line"></span>
+					<span class="nav__toggle__line"></span>
 				</div>
 			</nav>
 		</div>

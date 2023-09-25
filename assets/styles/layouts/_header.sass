@@ -4,8 +4,13 @@
   left: 0
   z-index: 100
   width: 100%
-  background-color: $color-bgc
   padding: 8px 0
+  -webkit-backdrop-filter: blur(10px)
+  backdrop-filter: blur(10px)
+  box-shadow: 0 0px 15px 5px rgba(0, 0, 0, 0.08)
+  +md 
+    padding: 0
+
 .nav
   display: flex
   justify-content: space-between
@@ -14,9 +19,26 @@
     font-family: $font-family-logo
     color: white
     margin-top: 0
+  &__menu
+    +md 
+      position: absolute
+      top: 67px
+      width: 180px
+      background-color: lighten($color-bgc, 10%)
+      border: solid 2px $color-primary
+      border-radius: 12px
+      right: -100%
+      transition: right .75s
+      &.active
+        right: 0%
+        
   &__list
     display: flex
     list-style: none
+    +md 
+      flex-wrap: wrap
+      flex-direction: column
+      
   &__link
     padding: 4px 6px 
     margin-left: 16px
@@ -24,6 +46,11 @@
     transition: color .5s
     overflow: hidden 
     position: relative
+    +md 
+      margin-left: 0
+      padding: 8px 12px
+      text-align: center
+      border-bottom: solid 1px lighten($color-primary, 5%)
     &::after
       content: ''
       display: block
@@ -33,11 +60,35 @@
       bottom: 0px
       border-bottom: solid 1px $color-emphasis
       transition: left .3s
-      
+      +md 
+        display: none
     &:hover, &.active 
       color: $color-emphasis
       &::after
         left: 0%
+    &:last-child
+      +md
+        border-bottom: none
 
   &__toggle
     display: none
+    +md 
+      display: block
+    &__line
+      width: 30px
+      height: 3px
+      background-color: $color-primary
+      border-radius: 100px
+      display: block
+      margin-top: 7px
+      transition: all .5s
+    &.active
+      .nav__toggle__line:nth-child(1)
+        transform: translateY(10px) rotate(135deg)
+      .nav__toggle__line:nth-child(2)
+        opacity: 0
+        transform: translateX(30px)
+      .nav__toggle__line:nth-child(3)
+        transform: translateY(-10px) rotate(-135deg)
+
+

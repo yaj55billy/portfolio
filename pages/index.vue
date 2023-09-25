@@ -13,6 +13,13 @@ const experience = ref(null);
 const project = ref(null);
 const header = ref(null);
 
+const navBtnActive = ref(false);
+const navMenuActive = ref(false);
+const navToggleHandle = () => {
+	navBtnActive.value = !navBtnActive.value;
+	navMenuActive.value = !navMenuActive.value;
+};
+
 const scrollToTarget = (targetRef, targetStr) => {
 	const targetChildStr = targetStr + "Component";
 	const targetElement = targetRef[targetChildStr];
@@ -21,6 +28,7 @@ const scrollToTarget = (targetRef, targetStr) => {
 			behavior: "smooth",
 			block: "start",
 		});
+		navToggleHandle();
 	}
 };
 
@@ -38,10 +46,10 @@ onMounted(() => {
 		entries.forEach((entry) => {
 			if (entry.isIntersecting) {
 				const targetId = entry.target.id;
-				console.log(targetId);
+				// console.log(targetId);
 				const targetHeader = targetToHeaderMap[targetId];
 				if (targetHeader) {
-					console.log("加 class");
+					// console.log("加 class");
 					targetHeader.classList.add("active");
 
 					const otherHeaders = Object.values(targetToHeaderMap).filter(
@@ -84,6 +92,9 @@ onUnmounted(() => {
 			:experience="experience"
 			:project="project"
 			:scrollToTarget="scrollToTarget"
+			:navBtnActive="navBtnActive"
+			:navMenuActive="navMenuActive"
+			:navToggleHandle="navToggleHandle"
 		/>
 		<Hero ref="hero" />
 		<About ref="about" />
