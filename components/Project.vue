@@ -13,7 +13,7 @@ defineExpose({
 	<section ref="projectComponent" id="projectComponent" class="section project">
 		<div class="container">
 			<div class="section__header">
-				<h2 class="section__title">project</h2>
+				<h2 class="section__title">PROJECT</h2>
 			</div>
 			<div class="project__content">...</div>
 		</div>

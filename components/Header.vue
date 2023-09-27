@@ -7,12 +7,12 @@ const props = defineProps({
 	about: {
 		type: Object,
 	},
-	skill: {
-		type: Object,
-	},
-	experience: {
-		type: Object,
-	},
+	// skill: {
+	// 	type: Object,
+	// },
+	// experience: {
+	// 	type: Object,
+	// },
 	project: {
 		type: Object,
 	},
@@ -31,15 +31,15 @@ const props = defineProps({
 });
 const headerHero = ref(null);
 const headerAbout = ref(null);
-const headerSkill = ref(null);
-const headerExperience = ref(null);
+// const headerSkill = ref(null);
+// const headerExperience = ref(null);
 const headerProject = ref(null);
 
 defineExpose({
 	headerHero,
 	headerAbout,
-	headerSkill,
-	headerExperience,
+	// headerSkill,
+	// headerExperience,
 	headerProject,
 });
 </script>
@@ -49,7 +49,7 @@ defineExpose({
 	<header id="header" class="header">
 		<div class="container">
 			<nav class="nav">
-				<NuxtLink to="/" class="nav__brand h1">BILLY JI.</NuxtLink>
+				<NuxtLink to="/" class="nav__brand">BILLY JI.</NuxtLink>
 				<div
 					class="nav__menu"
 					:class="{ active: props.navMenuActive }"
@@ -61,7 +61,7 @@ defineExpose({
 								ref="headerHero"
 								class="nav__link"
 								@click.prevent="props.scrollToTarget(props.hero, 'hero')"
-								>Home</a
+								>HOME</a
 							>
 						</li>
 						<li class="nav__item">
@@ -69,10 +69,10 @@ defineExpose({
 								ref="headerAbout"
 								class="nav__link"
 								@click.prevent="props.scrollToTarget(props.about, 'about')"
-								>About</a
+								>ABOUT</a
 							>
 						</li>
-						<li class="nav__item">
+						<!-- <li class="nav__item">
 							<a
 								ref="headerSkill"
 								class="nav__link"
@@ -89,13 +89,21 @@ defineExpose({
 								"
 								>Experience</a
 							>
-						</li>
+						</li> -->
 						<li class="nav__item">
 							<a
 								ref="headerProject"
 								class="nav__link"
 								@click.prevent="props.scrollToTarget(props.project, 'project')"
-								>Project</a
+								>PROJECT</a
+							>
+						</li>
+						<li class="nav__item">
+							<a
+								class="nav__link--outer"
+								href="https://www.billyji.com/"
+								target="_blank"
+								>BLOG</a
 							>
 						</li>
 					</ul>

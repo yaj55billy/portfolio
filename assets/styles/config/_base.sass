@@ -10,29 +10,33 @@ body, html
 	position: relative
 	+sm 
 		font-size: 15px
-	+xs
 	::selection 
 		// background-color: $color-selection
 
 .h1, h1, .h2, h2, .h3, h3, .h4, h4, .h5, h5, .h6, h6
 	font-weight: $font-weight-bold
-	color: $color-primary
+	color: $color-primary-title
 .h1, h1, .h2, h2, .h3, h3
 	margin-top: 1.75rem
 .h4, h4, .h5, h5, .h6, h6
 	margin-top: 1.25rem
+
 .h1, h1
-	font-size: $font-size-h1
+	font-size: $font-size-base * 3.5 
 .h2, h2
-	font-size: $font-size-h2
+	font-size: $font-size-base * 3 
+	+lg 
+		font-size: $font-size-base * 2.5 
+	+sm 
+		font-size: $font-size-base * 2.0
 .h3, h3
-	font-size: $font-size-h3
+	font-size: $font-size-base * 2
 .h4, h4
-	font-size: $font-size-h4
+	font-size: $font-size-base * 1.75
 .h5, h5
-	font-size: $font-size-h5
+	font-size: $font-size-base * 1.5
 .h6, h6
-	font-size: $font-size-h6
+	font-size: $font-size-base * 1.25
 p 
 	font-size: $font-size-base
 	font-weight: $font-weight-normal
@@ -85,14 +89,30 @@ button
 		padding-top: 68px
 
 .container 
-	width: 100%
 	max-width: 980px
 	margin: 0 auto
+	width: 100%
 	+xl 
 		padding: 0 20px
 	+md
 		padding: 0 15px
 
 .section
-	min-height: 100vh // temp
-	padding-top: 68px 
+	position: relative
+	padding-top: 68px
+	padding-bottom: 68px
+	&::after
+		content: ''
+		position: absolute
+		bottom: 0
+		left: 0
+		right: 0
+		max-width: 980px
+		margin: auto
+		border-bottom: solid 4px $color-primary-title
+		+xl 
+			width: calc(100% - 40px)
+		+md 
+			width: calc(100% - 30px)
+		
+
