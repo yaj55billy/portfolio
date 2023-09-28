@@ -2,8 +2,7 @@
 import { ref, onMounted } from "vue";
 import Hero from "@/components/Hero.vue";
 import About from "@/components/About.vue";
-// import Skill from "@/components/Skill.vue";
-// import Experience from "@/components/Experience.vue";
+
 import Project from "@/components/Project.vue";
 
 const hero = ref(null);

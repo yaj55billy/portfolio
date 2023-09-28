@@ -45,8 +45,7 @@ defineExpose({
 				<div class="hero__content">
 					<h2 class="hero__title">Hi, I am Billy,<br />Front-End Developer.</h2>
 					<p class="hero__description">
-						哈囉，我是
-						Billy，在前端領域已有數年的開發經驗，熟悉如何與團隊配合、溝通，並協同製作出網站，目前也持續精進中。
+						在前端領域已有數年的開發經驗，熟悉如何與團隊配合、溝通，並協同製作出網站，目前也持續精進中。
 					</p>
 					<div class="hero__iconbox">
 						<a

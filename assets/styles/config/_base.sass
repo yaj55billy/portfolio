@@ -17,7 +17,7 @@ body, html
 	font-weight: $font-weight-bold
 	color: $color-primary-title
 .h1, h1, .h2, h2, .h3, h3
-	margin-top: 1.75rem
+	// margin-top: 1.75rem
 .h4, h4, .h5, h5, .h6, h6
 	margin-top: 1.25rem
 
@@ -51,8 +51,6 @@ a
 	color: $color-primary
 	text-decoration: none
 	cursor: pointer
-	&:hover 
-		// color: $color-emphasis
 span 
 	color: $color-primary
 
@@ -114,5 +112,15 @@ button
 			width: calc(100% - 40px)
 		+md 
 			width: calc(100% - 30px)
+	&__title
+		display: block
+		text-align: center
+		&::after
+			content: ""
+			display: block
+			width: 150px
+			height: 8px
+			background-color: $color-primary-title
+			margin: 0 auto 40px
 		
 
