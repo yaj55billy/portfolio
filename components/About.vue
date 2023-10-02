@@ -5,7 +5,7 @@ import Experience from "./Experience.vue";
 
 const aboutComponent = ref(null);
 
-const aboutInfo = ref("experience"); //  skills
+const aboutInfo = ref("skills");
 const aboutInfoHandle = (value) => {
 	if (aboutInfo.value === value) return false;
 	aboutInfo.value = value;
