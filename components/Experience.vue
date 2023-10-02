@@ -19,7 +19,7 @@
 	<div class="experience">
 		<div class="experience__section">
 			<div class="experience__company">芯禾數位行銷 (2018 — 2021)</div>
-			<h4 class="experience__position">前端工程師</h4>
+			<h5 class="experience__position">前端工程師</h5>
 			<p class="experience__content">
 				公司專案類型主要為銀行業的活動型網站建置，我主要負責的部分是以
 				HTML、SASS 做響應式切版，使用 jQuery 、JavaScript 做網頁互動、串接第三方
@@ -30,7 +30,7 @@
 		</div>
 		<div class="experience__section">
 			<div class="experience__company">森德網站設計 (2017 — 2018)</div>
-			<h4 class="experience__position">前端工程師</h4>
+			<h5 class="experience__position">前端工程師</h5>
 			<p class="experience__content">
 				公司專案類型主要為企業形象網站建置，我主要負責的部分是以 HTML、CSS
 				做響應式切版，使用 jQuery

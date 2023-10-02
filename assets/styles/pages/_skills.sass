@@ -1,0 +1,28 @@
+.skills
+  display: flex 
+  flex-wrap: wrap
+  justify-content: space-between
+  &__section
+    background-color: $color-secondary
+    width: 48%
+    padding: 25px
+    margin-top: 20px
+    +sm 
+      width: 100%
+  &__icons
+    display: flex
+    margin-top: 10px
+  &__icon 
+    font-size: 26px
+    margin-right: 6px
+    transition: transform .5s
+    &:hover
+      transform: translateY(-4px)      
+    &--ajdust
+      transform: scale(2.0) translateY(1px)
+      margin: 0 20px
+      &:hover
+        transform: scale(2.0) translateY(-4px) 
+  &__list
+    padding-left: 20px
+    margin-top: 10px

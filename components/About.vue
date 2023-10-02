@@ -5,7 +5,7 @@ import Experience from "./Experience.vue";
 
 const aboutComponent = ref(null);
 
-const aboutInfo = ref("skills");
+const aboutInfo = ref("experience"); //  skills
 const aboutInfoHandle = (value) => {
 	if (aboutInfo.value === value) return false;
 	aboutInfo.value = value;
@@ -37,13 +37,13 @@ defineExpose({
 					<div class="about__info">
 						<div class="about__info__header">
 							<a
-								class="about__info__btn h3"
+								class="about__info__btn h4"
 								:class="{ active: aboutInfo === 'skills' }"
 								@click="aboutInfoHandle('skills')"
 								>SKILLS</a
 							>
 							<a
-								class="about__info__btn h3"
+								class="about__info__btn h4"
 								:class="{ active: aboutInfo === 'experience' }"
 								@click="aboutInfoHandle('experience')"
 								>EXPERIENCE</a

@@ -18,7 +18,7 @@ import { ref, onMounted, onUnmounted } from "vue";
 	<!--=================== skill ====================-->
 	<div class="skills">
 		<section class="skills__section">
-			<h4 class="skills__title">Web Layout</h4>
+			<h5 class="skills__title">Web Layout</h5>
 			<div class="skills__icons">
 				<Icon name="logos:html-5" class="skills__icon" />
 				<Icon name="logos:css-3" class="skills__icon" />
@@ -35,7 +35,7 @@ import { ref, onMounted, onUnmounted } from "vue";
 			</ul>
 		</section>
 		<section class="skills__section">
-			<h4 class="skills__title">Git 版控/Other</h4>
+			<h5 class="skills__title">Git 版控/Other</h5>
 			<div class="skills__icons">
 				<Icon name="logos:git-icon" class="skills__icon" />
 				<Icon name="logos:github-octocat" class="skills__icon" />
@@ -49,10 +49,10 @@ import { ref, onMounted, onUnmounted } from "vue";
 			</ul>
 		</section>
 		<section class="skills__section">
-			<h4 class="skills__title">JavaScript</h4>
+			<h5 class="skills__title">JavaScript</h5>
 			<div class="skills__icons">
-				<Icon name="logos:jquery" class="skills__icon" />
 				<Icon name="logos:javascript" class="skills__icon" />
+				<Icon name="logos:jquery" class="skills__icon skills__icon--ajdust" />
 				<Icon name="logos:eslint" class="skills__icon" />
 			</div>
 			<ul class="skills__list">
@@ -63,12 +63,12 @@ import { ref, onMounted, onUnmounted } from "vue";
 			</ul>
 		</section>
 		<section class="skills__section">
-			<h4 class="skills__title">Vue/Nuxt</h4>
+			<h5 class="skills__title">Vue/Nuxt</h5>
 			<div class="skills__icons">
 				<Icon name="logos:vue" class="skills__icon" />
-				<Icon name="logos:pinia" class="skills__icon" />
-				<Icon name="logos:vitejs" class="skills__icon" />
 				<Icon name="logos:nuxt-icon" class="skills__icon" />
+				<Icon name="logos:vitejs" class="skills__icon" />
+				<Icon name="logos:pinia" class="skills__icon" />
 			</div>
 			<ul class="skills__list">
 				<li class="skills__item">Vue2/3 框架建置與打包專案</li>
