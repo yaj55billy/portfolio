@@ -1,18 +1,4 @@
-<script setup>
-import { ref, onMounted, onUnmounted } from "vue";
-
-// const skillComponent = ref(null);
-
-// defineExpose({
-// 	skillComponent,
-// });
-// onMounted(() => {
-// 	console.log("啟動 Skills 元件");
-// });
-// onUnmounted(() => {
-// 	console.log("銷毀 Skills 元件");
-// });
-</script>
+<script setup></script>
 
 <template>
 	<!--=================== skill ====================-->

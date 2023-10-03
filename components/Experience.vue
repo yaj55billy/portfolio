@@ -1,18 +1,4 @@
-<script setup>
-// import { ref } from "vue";
-
-// const experienceComponent = ref(null);
-
-// defineExpose({
-// 	experienceComponent,
-// });
-// onMounted(() => {
-// 	console.log("啟動 Experience 元件");
-// });
-// onUnmounted(() => {
-// 	console.log("銷毀 Experience 元件");
-// });
-</script>
+<script setup></script>
 
 <template>
 	<!--=================== Experience ====================-->

@@ -7,12 +7,6 @@ const props = defineProps({
 	about: {
 		type: Object,
 	},
-	// skill: {
-	// 	type: Object,
-	// },
-	// experience: {
-	// 	type: Object,
-	// },
 	project: {
 		type: Object,
 	},
@@ -31,15 +25,11 @@ const props = defineProps({
 });
 const headerHero = ref(null);
 const headerAbout = ref(null);
-// const headerSkill = ref(null);
-// const headerExperience = ref(null);
 const headerProject = ref(null);
 
 defineExpose({
 	headerHero,
 	headerAbout,
-	// headerSkill,
-	// headerExperience,
 	headerProject,
 });
 </script>

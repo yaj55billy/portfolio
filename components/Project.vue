@@ -1,9 +1,12 @@
 <script setup>
 import { ref, onMounted } from "vue";
+import Card from "./Card.vue";
 
 const projectComponent = ref(null);
 
 const projectData = ref([]);
+const filterProjectData = ref([]);
+const projectDataStatus = ref("all");
 
 const fetchProjectData = () => {
 	// statusStore.isLoading = true;
@@ -11,12 +14,24 @@ const fetchProjectData = () => {
 		method: "GET",
 	})
 		.then((res) => {
-			console.log(res);
 			projectData.value = res.data;
+			filterProjectData.value = res.data;
 		})
 		.finally(() => {
 			// statusStore.isLoading = false;
 		});
+};
+
+const projectListHandle = (type) => {
+	if (type === "all") {
+		projectDataStatus.value = "all";
+		filterProjectData.value = projectData.value;
+	} else {
+		projectDataStatus.value = type;
+		filterProjectData.value = projectData.value.filter(
+			(item) => item.type === type
+		);
+	}
 };
 
 onMounted(() => {
@@ -37,24 +52,29 @@ defineExpose({
 			</div>
 			<div class="project__content">
 				<div class="project__info">
-					<div class="project__info__header">
-						<a class="project__info__btn h4">全部</a>
-						<a class="project__info__btn h4">專案</a>
-						<a class="project__info__btn h4">作品</a>
-						<!-- :class="{ active: aboutInfo === 'skills' }" @click="aboutInfoHandle('skills')"-->
-						<!-- :class="{ active: aboutInfo === 'experience' }"
-							@click="aboutInfoHandle('experience')" -->
-					</div>
+					<!-- <div class="project__info__header">
+						<a
+							class="project__info__btn h4"
+							:class="{ active: projectDataStatus === 'all' }"
+							@click="projectListHandle('all')"
+							>全部</a
+						>
+						<a
+							class="project__info__btn h4"
+							:class="{ active: projectDataStatus === 'project' }"
+							@click="projectListHandle('project')"
+							>專案</a
+						>
+						<a
+							class="project__info__btn h4"
+							:class="{ active: projectDataStatus === 'side-project' }"
+							@click="projectListHandle('side-project')"
+							>作品</a
+						>
+					</div> -->
 					<div class="project__info__main">
-						<div v-for="project in projectData" :key="project.id">
-							<h5>{{ project.title }}</h5>
-							<p>{{ project.content }}</p>
-							<a :href="project.link" target="_blank">連結</a>
-							<ul>
-								<li v-for="tag in project.tags" :key="tag.id">
-									{{ tag.value }}
-								</li>
-							</ul>
+						<div class="project__info__list">
+							<Card :filterProjectData="filterProjectData" />
 						</div>
 					</div>
 				</div>
