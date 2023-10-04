@@ -11,6 +11,10 @@ const aboutInfoHandle = (value) => {
 	aboutInfo.value = value;
 };
 
+onMounted(() => {
+	console.log("about");
+});
+
 defineExpose({
 	aboutComponent,
 });

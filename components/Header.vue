@@ -62,24 +62,6 @@ defineExpose({
 								>ABOUT</a
 							>
 						</li>
-						<!-- <li class="nav__item">
-							<a
-								ref="headerSkill"
-								class="nav__link"
-								@click.prevent="props.scrollToTarget(props.skill, 'skill')"
-								>Skill</a
-							>
-						</li>
-						<li class="nav__item">
-							<a
-								ref="headerExperience"
-								class="nav__link"
-								@click.prevent="
-									props.scrollToTarget(props.experience, 'experience')
-								"
-								>Experience</a
-							>
-						</li> -->
 						<li class="nav__item">
 							<a
 								ref="headerProject"
