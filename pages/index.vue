@@ -1,9 +1,9 @@
 <script setup>
 import { ref, onMounted } from "vue";
-
 import Hero from "@/components/Hero.vue";
 import About from "@/components/About.vue";
 import Project from "@/components/Project.vue";
+const { $ScrollReveal } = useNuxtApp();
 
 const hero = ref(null);
 const about = ref(null);
@@ -70,6 +70,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
+	$ScrollReveal().destroy();
 	window.removeEventListener("scroll", scrollHandle, true);
 });
 </script>

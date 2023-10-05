@@ -1,7 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import Card from "./Card.vue";
-
 const projectComponent = ref(null);
 
 const projectData = ref([]);
@@ -10,29 +9,6 @@ const { data: project } = await useFetch("/api/project");
 
 projectData.value = project.value.data;
 filterProjectData.value = project.value.data;
-
-// const fetchProjectData = () => {
-// 	// statusStore.isLoading = true;
-// 	$fetch("/api/project", {
-// 		method: "GET",
-// 	})
-// 		.then((res) => {
-// 			console.log("Project資料載好");
-// 			projectData.value = res.data;
-// 			filterProjectData.value = res.data;
-// 		})
-// 		.finally(() => {
-// 			// statusStore.isLoading = false;
-// 		});
-// };
-
-onMounted(async () => {
-	// console.log("Project");
-	// projectData.value = data;
-	// filterProjectData.value = data;
-	// fetchProjectData();
-	// console.log(filterProjectData.value);
-});
 
 const projectDataStatus = ref("all");
 
@@ -83,7 +59,7 @@ defineExpose({
 						>
 					</div>
 					<div class="project__info__main">
-						<div class="project__info__list">
+						<div class="project__info__list cardIn">
 							<Card :filterProjectData="filterProjectData" />
 						</div>
 					</div>

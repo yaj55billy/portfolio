@@ -1,9 +1,22 @@
-<script setup></script>
+<script setup>
+const { $ScrollReveal } = useNuxtApp();
+onMounted(() => {
+	$ScrollReveal().reveal(".skillsSectionIn", {
+		duration: 600,
+		easing: "ease-in",
+		interval: 200,
+	});
+});
+
+onUnmounted(() => {
+	$ScrollReveal().clean(".skillsSectionIn");
+});
+</script>
 
 <template>
 	<!--=================== skill ====================-->
 	<div class="skills">
-		<section class="skills__section">
+		<section class="skills__section skillsSectionIn">
 			<h5 class="skills__title">Web Layout</h5>
 			<div class="skills__icons">
 				<Icon name="logos:html-5" class="skills__icon" />
@@ -20,7 +33,7 @@
 				</li>
 			</ul>
 		</section>
-		<section class="skills__section">
+		<section class="skills__section skillsSectionIn">
 			<h5 class="skills__title">Git 版控/Other</h5>
 			<div class="skills__icons">
 				<Icon name="logos:git-icon" class="skills__icon" />
@@ -34,7 +47,7 @@
 				<li class="skills__item">Adobe Ai / Ps 基礎操作(切圖)</li>
 			</ul>
 		</section>
-		<section class="skills__section">
+		<section class="skills__section skillsSectionIn">
 			<h5 class="skills__title">JavaScript</h5>
 			<div class="skills__icons">
 				<Icon name="logos:javascript" class="skills__icon" />
@@ -48,7 +61,7 @@
 				<li class="skills__item">ESLint 使用經驗</li>
 			</ul>
 		</section>
-		<section class="skills__section">
+		<section class="skills__section skillsSectionIn">
 			<h5 class="skills__title">Vue/Nuxt</h5>
 			<div class="skills__icons">
 				<Icon name="logos:vue" class="skills__icon" />

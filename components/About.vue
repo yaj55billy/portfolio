@@ -3,6 +3,8 @@ import { ref } from "vue";
 import Skills from "./Skills.vue";
 import Experience from "./Experience.vue";
 
+const { $ScrollReveal } = useNuxtApp();
+
 const aboutComponent = ref(null);
 
 const aboutInfo = ref("skills");
@@ -10,6 +12,18 @@ const aboutInfoHandle = (value) => {
 	if (aboutInfo.value === value) return false;
 	aboutInfo.value = value;
 };
+
+onMounted(() => {
+	$ScrollReveal().reveal(".aboutDescriptionIn", {
+		duration: 600,
+		delay: 200,
+		easing: "ease-in",
+	});
+});
+
+onUnmounted(() => {
+	$ScrollReveal().clean(".aboutDescriptionIn");
+});
 
 defineExpose({
 	aboutComponent,
@@ -25,7 +39,7 @@ defineExpose({
 			</div>
 			<div class="about__wrapper">
 				<div class="about__content">
-					<p class="about__description">
+					<p class="about__description aboutDescriptionIn">
 						HI，我是
 						Billy，有數年的前端工作經歷，因為先前工作類別接觸到較多案量，所以熟悉與
 						PM、設計、前後端等團隊人員合作，協同討論需求並建置出網站（如：企業形象、活動頁面），而對於工作節奏與狀況變動，也具有一定的掌握跟彈性。

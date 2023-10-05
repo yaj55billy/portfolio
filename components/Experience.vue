@@ -1,9 +1,22 @@
-<script setup></script>
+<script setup>
+const { $ScrollReveal } = useNuxtApp();
+onMounted(() => {
+	$ScrollReveal().reveal(".experienceSectionIn", {
+		duration: 600,
+		easing: "ease-in",
+		interval: 300,
+	});
+});
+
+onUnmounted(() => {
+	$ScrollReveal().clean(".experienceSectionIn");
+});
+</script>
 
 <template>
 	<!--=================== Experience ====================-->
 	<div class="experience">
-		<div class="experience__section">
+		<div class="experience__section experienceSectionIn">
 			<div class="experience__company">芯禾數位行銷 (2018 — 2021)</div>
 			<h5 class="experience__position">前端工程師</h5>
 			<p class="experience__content">
@@ -14,7 +27,7 @@
 				版本控制，開始制定相關文件，解決協作、檔案管理的問題。
 			</p>
 		</div>
-		<div class="experience__section">
+		<div class="experience__section experienceSectionIn">
 			<div class="experience__company">森德網站設計 (2017 — 2018)</div>
 			<h5 class="experience__position">前端工程師</h5>
 			<p class="experience__content">

@@ -1,14 +1,32 @@
 <script setup>
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
+const { $ScrollReveal } = useNuxtApp();
 const props = defineProps({
 	filterProjectData: {
 		type: Object,
 	},
 });
+onMounted(() => {
+	$ScrollReveal().reveal(".cardIn", {
+		duration: 600,
+		easing: "ease-in",
+		// viewOffset: {
+		// 	top: 60,
+		// },
+	});
+});
+
+onUnmounted(() => {
+	$ScrollReveal().clean(".cardIn");
+});
 </script>
 <template>
 	<TransitionGroup name="card">
-		<div class="card" v-for="item in props.filterProjectData" :key="item.id">
+		<div
+			class="card cardIn"
+			v-for="item in props.filterProjectData"
+			:key="item.id"
+		>
 			<div class="card__header">
 				<carousel :items-to-show="1">
 					<slide v-for="slide in item.pics" :key="slide.id">

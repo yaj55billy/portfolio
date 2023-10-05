@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from "vue";
 
+const { $ScrollReveal } = useNuxtApp();
+
 const heroComponent = ref(null);
 const multiple = ref(25);
 const heroImgTransform = ref("translate3d(0px, 0px, 0px) rotate(0.0001deg)");
@@ -19,6 +21,25 @@ const heroImgMouseLeave = () => {
 	heroImgTransform.value = "translate3d(0px, 0px, 0px) rotate(0.0001deg)";
 };
 
+onMounted(() => {
+	$ScrollReveal().reveal(".heroImgIn", {
+		duration: 800,
+		easing: "ease-in",
+		scale: 0.85,
+	});
+	$ScrollReveal().reveal(".heroContentIn", {
+		duration: 400,
+		delay: 200,
+		distance: "50px",
+		easing: "ease-in",
+	});
+});
+
+onUnmounted(() => {
+	$ScrollReveal().clean(".heroImgIn");
+	$ScrollReveal().clean(".heroContentIn");
+});
+
 defineExpose({
 	heroComponent,
 });
@@ -30,7 +51,7 @@ defineExpose({
 		<div class="container">
 			<div class="hero__wrapper">
 				<div
-					class="hero__avatar"
+					class="hero__avatar heroImgIn"
 					@mousemove="heroImgMouseMove"
 					@mouseleave="heroImgMouseLeave"
 				>
@@ -42,8 +63,10 @@ defineExpose({
 						:style="{ transform: heroImgTransform }"
 					/>
 				</div>
-				<div class="hero__content">
-					<h2 class="hero__title">Hi, I am Billy,<br />Front-End Developer.</h2>
+				<div class="hero__content heroContentIn">
+					<h2 class="hero__title tagline">
+						Hi, I am Billy,<br />Front-End Developer.
+					</h2>
 					<p class="hero__description">
 						在前端領域已有數年的開發經驗，熟悉如何與團隊配合、溝通，並協同製作出網站，目前也持續精進中。
 					</p>
