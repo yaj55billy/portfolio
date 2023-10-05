@@ -44,7 +44,7 @@ const props = defineProps({
 	</TransitionGroup>
 </template>
 
-<style>
+<style scoped>
 .card-enter-active {
 	transition: all 0.5s ease;
 }
