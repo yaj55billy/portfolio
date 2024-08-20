@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 
-const { $ScrollReveal } = useNuxtApp();
+// const { $ScrollReveal } = useNuxtApp();
 
 const heroComponent = ref(null);
 const multiple = ref(25);
@@ -22,22 +22,33 @@ const heroImgMouseLeave = () => {
 };
 
 onMounted(() => {
-	$ScrollReveal().reveal(".heroImgIn", {
-		duration: 800,
-		easing: "ease-in",
+	useGsap.from(".heroImg", {
+		opacity: 0,
 		scale: 0.85,
+		duration: 0.8,
 	});
-	$ScrollReveal().reveal(".heroContentIn", {
-		duration: 400,
-		delay: 200,
-		distance: "50px",
-		easing: "ease-in",
+
+	useGsap.from(".heroContent", {
+		opacity: 0,
+		duration: 0.4,
+		right: 100,
 	});
+	// $ScrollReveal().reveal(".heroImgIn", {
+	// 	duration: 800,
+	// 	easing: "ease-in",
+	// 	scale: 0.85,
+	// });
+	// $ScrollReveal().reveal(".heroContentIn", {
+	// 	duration: 400,
+	// 	delay: 200,
+	// 	distance: "50px",
+	// 	easing: "ease-in",
+	// });
 });
 
 onUnmounted(() => {
-	$ScrollReveal().clean(".heroImgIn");
-	$ScrollReveal().clean(".heroContentIn");
+	// $ScrollReveal().clean(".heroImgIn");
+	// $ScrollReveal().clean(".heroContentIn");
 });
 
 defineExpose({
@@ -51,7 +62,7 @@ defineExpose({
 		<div class="container">
 			<div class="hero__wrapper">
 				<div
-					class="hero__avatar heroImgIn"
+					class="hero__avatar heroImg"
 					@mousemove="heroImgMouseMove"
 					@mouseleave="heroImgMouseLeave"
 				>
@@ -63,12 +74,17 @@ defineExpose({
 						:style="{ transform: heroImgTransform }"
 					/>
 				</div>
-				<div class="hero__content heroContentIn">
+				<div class="hero__content heroContent">
 					<h2 class="hero__title tagline">
 						Hi, I am Billy,<br />Front-End Developer.
 					</h2>
 					<p class="hero__description">
-						在前端領域已有數年的開發經驗，熟悉如何與團隊配合、溝通，並協同製作出網站，目前也持續精進中。
+						HI，我是
+						Billy，有數年的前端工作經歷，因為先前工作類別接觸到較多案量，所以熟悉與
+						PM、設計、前後端等團隊人員合作，協同討論需求並建置出網站（如：企業形象、活動頁面），而對於工作節奏與狀況變動，也具有一定的掌握跟彈性。<br /><br />
+						除了工作上運用的技能外，我也會主動去了解、學習前端相關知識，而在學習的過程中，也會思考著新的工具或技術能否運用在團隊項目。在先前的工作經驗中，我曾經跟另一名同事將
+						Git
+						版控引入到團隊中，大量減少找檔案、傳遞檔案、協作上所多消耗的時間，在整個團隊中，專案也變得更容易管理。
 					</p>
 					<div class="hero__iconbox">
 						<a

@@ -11,6 +11,7 @@
     "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
+    "@hypernym/nuxt-gsap": "^2.4.2",
     "@nuxt/devtools": "latest",
     "nuxt": "^3.7.3",
     "nuxt-icon": "^0.5.0"
@@ -18,7 +19,6 @@
   "dependencies": {
     "gh-pages": "^6.0.0",
     "sass": "^1.68.0",
-    "scrollreveal": "^4.0.9",
     "vue3-carousel-nuxt": "^1.1.0"
   }
 }

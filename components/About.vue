@@ -3,7 +3,7 @@ import { ref } from "vue";
 import Skills from "./Skills.vue";
 import Experience from "./Experience.vue";
 
-const { $ScrollReveal } = useNuxtApp();
+// const { $ScrollReveal } = useNuxtApp();
 
 const aboutComponent = ref(null);
 
@@ -14,15 +14,15 @@ const aboutInfoHandle = (value) => {
 };
 
 onMounted(() => {
-	$ScrollReveal().reveal(".aboutDescriptionIn", {
-		duration: 600,
-		delay: 200,
-		easing: "ease-in",
-	});
+	// $ScrollReveal().reveal(".aboutDescriptionIn", {
+	// 	duration: 600,
+	// 	delay: 200,
+	// 	easing: "ease-in",
+	// });
 });
 
 onUnmounted(() => {
-	$ScrollReveal().clean(".aboutDescriptionIn");
+	// $ScrollReveal().clean(".aboutDescriptionIn");
 });
 
 defineExpose({

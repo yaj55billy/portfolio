@@ -59,8 +59,15 @@ defineExpose({
 						>
 					</div>
 					<div class="project__info__main">
-						<div class="project__info__list cardIn">
-							<Card :filterProjectData="filterProjectData" />
+						<div class="project__info__list">
+							<template
+								v-for="cardItem in filterProjectData"
+								:key="cardItem.id"
+							>
+								<div class="card">
+									<Card :cardItem="cardItem" />
+								</div>
+							</template>
 						</div>
 					</div>
 				</div>

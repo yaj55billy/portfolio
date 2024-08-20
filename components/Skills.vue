@@ -1,15 +1,15 @@
 <script setup>
-const { $ScrollReveal } = useNuxtApp();
+// const { $ScrollReveal } = useNuxtApp();
 onMounted(() => {
-	$ScrollReveal().reveal(".skillsSectionIn", {
-		duration: 600,
-		easing: "ease-in",
-		interval: 200,
-	});
+	// $ScrollReveal().reveal(".skillsSectionIn", {
+	// 	duration: 600,
+	// 	easing: "ease-in",
+	// 	interval: 200,
+	// });
 });
 
 onUnmounted(() => {
-	$ScrollReveal().clean(".skillsSectionIn");
+	// $ScrollReveal().clean(".skillsSectionIn");
 });
 </script>
 
