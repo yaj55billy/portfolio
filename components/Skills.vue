@@ -74,7 +74,7 @@ onUnmounted(() => {
 				<li class="skills__item">了解 Option API 與 Composition API</li>
 				<li class="skills__item">使用 Vue Router 建構路由</li>
 				<li class="skills__item">使用 Vuex、Pinia 做狀態共享與管理</li>
-				<li class="skills__item">Nuxt 基礎了解與應用</li>
+				<li class="skills__item">Nuxt3 操作與應用</li>
 			</ul>
 		</section>
 	</div>
