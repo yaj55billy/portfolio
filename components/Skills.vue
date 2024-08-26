@@ -1,80 +1,110 @@
 <script setup>
-// const { $ScrollReveal } = useNuxtApp();
+const skills = ref([
+	{
+		title: "Web Layout",
+		icons: [
+			"logos:html-5",
+			"logos:css-3",
+			"logos:sass",
+			"logos:bootstrap",
+			"logos:tailwindcss-icon",
+		],
+		items: [
+			"熟悉 HTML、CSS 手刻響應式網頁 (變版的掌握)",
+			"使用 SASS 達成分類與管理",
+			"依照需求或團隊，適時導入 Bootstrap、Tailwind",
+		],
+	},
+	{
+		title: "Git 版控/Other",
+		icons: [
+			"logos:git-icon",
+			"logos:github-octocat",
+			"logos:adobe-photoshop",
+			"logos:adobe-illustrator",
+		],
+		items: [
+			"Git 版控操作",
+			"Git 協作經驗(ex: Git Flow)",
+			"Adobe Ai / Ps 基礎操作(切圖)",
+		],
+	},
+	{
+		title: "JavaScript",
+		icons: ["logos:javascript", "logos:jquery", "logos:eslint"],
+		items: [
+			"熟悉 jQuery 製作網頁互動",
+			"了解 JavaScript ES6",
+			"熟悉 AJAX / JSON 做 API 串接(RESTful API)",
+			"ESLint 使用經驗",
+		],
+	},
+	{
+		title: "Vue/Nuxt",
+		icons: ["logos:vue", "logos:nuxt-icon", "logos:vitejs", "logos:pinia"],
+		items: [
+			"Vue2/3 框架建置與打包專案",
+			"了解 Option API 與 Composition API",
+			"使用 Vue Router 建構路由",
+			"使用 Vuex、Pinia 做狀態共享與管理",
+			"Nuxt3 操作與應用",
+		],
+	},
+]);
+
+// let skillsSectionAnimation;
+
+const skillRefs = ref(null);
+
 onMounted(() => {
-	// $ScrollReveal().reveal(".skillsSectionIn", {
-	// 	duration: 600,
-	// 	easing: "ease-in",
-	// 	interval: 200,
+	// skillRefs.value.forEach((section) => {
+	// 	skillsSectionAnimation = useGsap.from(section, {
+	// 		scrollTrigger: {
+	// 			trigger: section,
+	// 			start: "top 60%",
+	// 			toggleClass: "active",
+	// 			scrub: false,
+	// 			toggleActions: "play reverse play complete",
+	// 		},
+	// 		ease: "power2.out",
+	// 		stagger: 0.4,
+	// 	});
 	// });
 });
 
 onUnmounted(() => {
-	// $ScrollReveal().clean(".skillsSectionIn");
+	if (skillsSectionAnimation) {
+		skillsSectionAnimation.kill();
+	}
 });
 </script>
 
 <template>
 	<!--=================== skill ====================-->
 	<div class="skills">
-		<section class="skills__section skillsSectionIn">
-			<h5 class="skills__title">Web Layout</h5>
+		<section
+			class="skills__section active"
+			ref="skillRefs"
+			v-for="(skill, index) in skills"
+			:key="index"
+		>
+			<h5 class="skills__title">{{ skill.title }}</h5>
 			<div class="skills__icons">
-				<Icon name="logos:html-5" class="skills__icon" />
-				<Icon name="logos:css-3" class="skills__icon" />
-				<Icon name="logos:sass" class="skills__icon" />
-				<Icon name="logos:bootstrap" class="skills__icon" />
-				<Icon name="logos:tailwindcss-icon" class="skills__icon" />
+				<Icon
+					v-for="(icon, iconIndex) in skill.icons"
+					:key="iconIndex + icon"
+					:name="icon"
+					class="skills__icon"
+				/>
 			</div>
 			<ul class="skills__list">
-				<li class="skills__item">熟悉 HTML、CSS 手刻響應式網頁 (變版的掌握)</li>
-				<li class="skills__item">使用 SASS 達成分類與管理</li>
-				<li class="skills__item">
-					依照需求或團隊，適時導入 Bootstrap、Tailwind
+				<li
+					v-for="(item, itemIndex) in skill.items"
+					:key="itemIndex + item"
+					class="skills__item"
+				>
+					{{ item }}
 				</li>
-			</ul>
-		</section>
-		<section class="skills__section skillsSectionIn">
-			<h5 class="skills__title">Git 版控/Other</h5>
-			<div class="skills__icons">
-				<Icon name="logos:git-icon" class="skills__icon" />
-				<Icon name="logos:github-octocat" class="skills__icon" />
-				<Icon name="logos:adobe-photoshop" class="skills__icon" />
-				<Icon name="logos:adobe-illustrator" class="skills__icon" />
-			</div>
-			<ul class="skills__list">
-				<li class="skills__item">Git 版控操作</li>
-				<li class="skills__item">Git 協作經驗(ex: Git Flow)</li>
-				<li class="skills__item">Adobe Ai / Ps 基礎操作(切圖)</li>
-			</ul>
-		</section>
-		<section class="skills__section skillsSectionIn">
-			<h5 class="skills__title">JavaScript</h5>
-			<div class="skills__icons">
-				<Icon name="logos:javascript" class="skills__icon" />
-				<Icon name="logos:jquery" class="skills__icon skills__icon--ajdust" />
-				<Icon name="logos:eslint" class="skills__icon" />
-			</div>
-			<ul class="skills__list">
-				<li class="skills__item">熟悉 jQuery 製作網頁互動</li>
-				<li class="skills__item">了解 JavaScript ES6</li>
-				<li class="skills__item">熟悉 AJAX / JSON 做 API 串接(RESTful API)</li>
-				<li class="skills__item">ESLint 使用經驗</li>
-			</ul>
-		</section>
-		<section class="skills__section skillsSectionIn">
-			<h5 class="skills__title">Vue/Nuxt</h5>
-			<div class="skills__icons">
-				<Icon name="logos:vue" class="skills__icon" />
-				<Icon name="logos:nuxt-icon" class="skills__icon" />
-				<Icon name="logos:vitejs" class="skills__icon" />
-				<Icon name="logos:pinia" class="skills__icon" />
-			</div>
-			<ul class="skills__list">
-				<li class="skills__item">Vue2/3 框架建置與打包專案</li>
-				<li class="skills__item">了解 Option API 與 Composition API</li>
-				<li class="skills__item">使用 Vue Router 建構路由</li>
-				<li class="skills__item">使用 Vuex、Pinia 做狀態共享與管理</li>
-				<li class="skills__item">Nuxt3 操作與應用</li>
 			</ul>
 		</section>
 	</div>

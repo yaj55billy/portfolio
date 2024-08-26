@@ -40,12 +40,5 @@ export default defineNuxtConfig({
 
 	devtools: { enabled: true },
 	css: ["@/assets/styles/main.sass"],
-	modules: ["nuxt-icon", "vue3-carousel-nuxt", "@hypernym/nuxt-gsap"],
-	gsap: {
-		composables: true,
-		provide: false,
-		extraPlugins: {
-			scrollTrigger: true,
-		},
-	},
+	modules: ["nuxt-icon", "vue3-carousel-nuxt"],
 });

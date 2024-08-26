@@ -1,5 +1,5 @@
 <script setup>
-const experiences = [
+const experiences = ref([
 	{
 		company: "六角學院",
 		years: "2023 — 2024",
@@ -21,30 +21,29 @@ const experiences = [
 		content:
 			"公司專案類型主要為企業形象網站建置，我主要負責的部分是以 HTML、CSS 做響應式切版，使用 jQuery 做網頁互動效果，並與企劃、設計師、後端工程師合作完成專案。在專案中適時導入 Bootstrap 提升開發效率，任職期間也有經手過中大型網站的經驗。",
 	},
-];
-let experienceSectionAnimation;
+]);
 
-const sections = ref(null);
+// let experienceSectionAnimation;
+const experienceRefs = ref(null);
 
 onMounted(() => {
-	sections.value.forEach((section) => {
-		experienceSectionAnimation = useGsap.from(section, {
-			scrollTrigger: {
-				trigger: section,
-				start: "top 85%",
-				toggleClass: "active",
-				scrub: false,
-				// toggleActions: "play reverse play complete",
-			},
-			ease: "power2.out",
-		});
-	});
+	// experienceRefs.value.forEach((section) => {
+	// 	experienceSectionAnimation = useGsap.from(section, {
+	// 		scrollTrigger: {
+	// 			trigger: section,
+	// 			start: "top 85%",
+	// 			toggleClass: "active",
+	// 			scrub: false,
+	// 		},
+	// 		ease: "power2.out",
+	// 	});
+	// });
 });
 
 onUnmounted(() => {
-	if (experienceSectionAnimation) {
-		experienceSectionAnimation.kill();
-	}
+	// if (experienceSectionAnimation) {
+	// 	experienceSectionAnimation.kill();
+	// }
 });
 </script>
 
@@ -53,7 +52,7 @@ onUnmounted(() => {
 	<div class="experience">
 		<div
 			class="experience__section"
-			ref="sections"
+			ref="experienceRefs"
 			v-for="(experience, index) in experiences"
 			:key="index + experience.company"
 		>
@@ -65,5 +64,3 @@ onUnmounted(() => {
 		</div>
 	</div>
 </template>
-
-<style></style>

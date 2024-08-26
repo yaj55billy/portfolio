@@ -11,7 +11,6 @@
     "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
-    "@hypernym/nuxt-gsap": "^2.4.2",
     "@nuxt/devtools": "latest",
     "nuxt": "^3.7.3",
     "nuxt-icon": "^0.5.0"
