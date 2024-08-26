@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "gh-pages": "^6.0.0",
+    "gsap": "^3.12.5",
     "sass": "^1.68.0",
     "vue3-carousel-nuxt": "^1.1.0"
   }

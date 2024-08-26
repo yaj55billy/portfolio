@@ -1,10 +1,13 @@
 <script setup>
 import { ref } from "vue";
+const { $gsap } = useNuxtApp();
 
 const heroComponent = ref(null);
 const multiple = ref(25);
 const heroImgTransform = ref("translate3d(0px, 0px, 0px) rotate(0.0001deg)");
 const heroImgRef = ref(null);
+
+const heroAvatarRef = ref(null);
 // let heroImgAnimation, heroContentAnimation;
 
 const heroImgMouseMove = (event) => {
@@ -21,6 +24,14 @@ const heroImgMouseLeave = () => {
 };
 
 onMounted(() => {
+	console.log($gsap);
+
+	$gsap.from(heroAvatarRef.value, {
+		opacity: 0,
+		scale: 0.85,
+		duration: 0.8,
+		ease: "power2.out",
+	});
 	// heroImgAnimation = useGsap.from(".heroImg", {
 	// 	opacity: 0,
 	// 	scale: 0.85,
@@ -56,7 +67,8 @@ defineExpose({
 		<div class="container">
 			<div class="hero__wrapper">
 				<div
-					class="hero__avatar heroImg"
+					class="hero__avatar"
+					ref="heroAvatarRef"
 					@mousemove="heroImgMouseMove"
 					@mouseleave="heroImgMouseLeave"
 				>
