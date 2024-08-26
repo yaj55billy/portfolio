@@ -1,6 +1,62 @@
 export default defineEventHandler((event) => {
 	const data = [
 		{
+			id: "billyji",
+			title: "筆力 - 探索與記錄的產地（Blog）",
+			type: "side-project",
+			link: "https://www.billyji.com/",
+			content: "使用 Nuxt3 跟 Nuxt Content 建置自己的 Blog。",
+			pics: [
+				{ id: "billyji-pic1", path: "https://i.imgur.com/tdcyh7Q.jpeg" },
+				{ id: "billyji-pic2", path: "https://i.imgur.com/D3HGxRY.jpeg" },
+				{ id: "billyji-pic3", path: "https://i.imgur.com/L12O91K.jpeg" },
+			],
+			tags: [
+				{ id: "billyji-tag1", value: "Nuxt" },
+				{ id: "billyji-tag2", value: "Nuxt Content" },
+				{ id: "billyji-tag3", value: "TailwindCss" },
+				{ id: "billyji-tag4", value: "Canvas" },
+			],
+		},
+		{
+			id: "metawall",
+			title: "Metawall 社群動態牆",
+			type: "side-project",
+			link: "https://yaj55billy.github.io/vue3-message-board/#/signin",
+			content:
+				"前端使用 Vue3 建置 + 後端 Node.js、MongoDB 所建置的虛構社群動態牆。測試帳密：test2222@gmail.com、test2222",
+			pics: [
+				{ id: "metawall-pic1", path: "https://i.imgur.com/OcivO3p.jpeg" },
+				{ id: "metawall-pic2", path: "https://i.imgur.com/wIDJKrb.jpeg" },
+				{ id: "metawall-pic3", path: "https://i.imgur.com/sorng3b.jpeg" },
+			],
+			tags: [
+				{ id: "metawall-tag1", value: "Vue" },
+				{ id: "metawall-tag2", value: "TailwindCss" },
+				{ id: "metawall-tag3", value: "Pinia" },
+				{ id: "metawall-tag4", value: "Node.js" },
+				{ id: "metawall-tag5", value: "Express" },
+				{ id: "metawall-tag6", value: "MongoDB" },
+				{ id: "metawall-tag7", value: "jwt" },
+			],
+		},
+		{
+			id: "doddertarot",
+			title: "菟絲子塔羅占卜",
+			type: "project",
+			link: "https://doddertarot.github.io/doddertarot/",
+			content: "使用 Nuxt3 建置塔羅牌占卜網站。",
+			pics: [
+				{ id: "doddertarot-pic1", path: "https://i.imgur.com/AWH4j4e.jpeg" },
+				{ id: "doddertarot-pic2", path: "https://i.imgur.com/7kNMQgX.jpeg" },
+			],
+			tags: [
+				{ id: "doddertarot-tag1", value: "Nuxt" },
+				{ id: "doddertarot-tag2", value: "SCSS" },
+				{ id: "doddertarot-tag3", value: "Vue Transition" },
+			],
+		},
+		{
 			id: "fitspace-vue",
 			title: "FitSpace 健身空間 (Vue)",
 			type: "side-project",
@@ -206,29 +262,6 @@ export default defineEventHandler((event) => {
 				{ id: "vinegarhouse-tag2", value: "SCSS" },
 				{ id: "vinegarhouse-tag3", value: "jQuery" },
 				{ id: "vinegarhouse-tag4", value: "Bootstrap" },
-			],
-		},
-		{
-			id: "next-blog",
-			title: "Next Blog",
-			type: "side-project",
-			link: "https://billymind-blog.vercel.app",
-			content: "使用 Next 搭配套件，將靜態 .md 檔案轉換為 HTML。",
-			pics: [
-				{
-					id: "next-blog-pic1",
-					path: "https://i.imgur.com/G3uDcuK.jpg",
-				},
-				{
-					id: "next-blog-pic2",
-					path: "https://i.imgur.com/KIwizfS.jpg",
-				},
-			],
-			tags: [
-				{ id: "next-blog-tag1", value: "Next" },
-				{ id: "next-blog-tag2", value: "SCSS" },
-				{ id: "next-blog-tag3", value: "gray-matter" },
-				{ id: "next-blog-tag4", value: "react-markdown" },
 			],
 		},
 		{

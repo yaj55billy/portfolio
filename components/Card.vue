@@ -21,7 +21,7 @@ onUnmounted(() => {
 });
 </script>
 <template>
-	<div class="card__content cardIn">
+	<div class="card cardIn">
 		<div class="card__header">
 			<carousel :items-to-show="1">
 				<slide v-for="slide in cardItem.pics" :key="slide.id">

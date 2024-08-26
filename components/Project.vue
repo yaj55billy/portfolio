@@ -64,9 +64,7 @@ defineExpose({
 								v-for="cardItem in filterProjectData"
 								:key="cardItem.id"
 							>
-								<div class="card">
-									<Card :cardItem="cardItem" />
-								</div>
+								<Card :cardItem="cardItem" />
 							</template>
 						</div>
 					</div>
