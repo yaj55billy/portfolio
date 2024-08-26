@@ -3,25 +3,8 @@ import { ref, onMounted, onUnmounted } from "vue";
 const { $gsap } = useNuxtApp();
 
 const heroComponent = ref(null);
-const multiple = ref(25);
-const heroImgTransform = ref("translate3d(0px, 0px, 0px) rotate(0.0001deg)");
-const heroImgRef = ref(null);
-
 const heroAvatarRef = ref(null);
 const heroContentRef = ref(null);
-
-const heroImgMouseMove = (event) => {
-	const imgElement = heroImgRef.value.getBoundingClientRect();
-	const calcX =
-		-(event.clientX - imgElement.x - imgElement.width / 2) / multiple.value;
-	const calcY =
-		-(event.clientY - imgElement.y - imgElement.height / 2) / multiple.value;
-	heroImgTransform.value = `translate3d(${calcX}px, ${calcY}px, 0px) rotate(0.0001deg)`;
-};
-
-const heroImgMouseLeave = () => {
-	heroImgTransform.value = "translate3d(0px, 0px, 0px) rotate(0.0001deg)";
-};
 
 let ctx;
 
@@ -58,20 +41,7 @@ defineExpose({
 	<section ref="heroComponent" id="heroComponent" class="section hero">
 		<div class="container">
 			<div class="hero__wrapper">
-				<div
-					class="hero__avatar"
-					ref="heroAvatarRef"
-					@mousemove="heroImgMouseMove"
-					@mouseleave="heroImgMouseLeave"
-				>
-					<img
-						src="~/assets/img/avatar.jpg"
-						alt="Billy Ji"
-						class="hero__img"
-						ref="heroImgRef"
-						:style="{ transform: heroImgTransform }"
-					/>
-				</div>
+				<HeroAvatar ref="heroAvatarRef" />
 				<div class="hero__content" ref="heroContentRef">
 					<h2 class="hero__title tagline">
 						Hi, I am Billy,<br />Front-End Developer.
