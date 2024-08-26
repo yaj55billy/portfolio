@@ -1,4 +1,7 @@
 <script setup>
+import { ref, onMounted, onUnmounted } from "vue";
+const { $gsap } = useNuxtApp();
+
 const skills = ref([
 	{
 		title: "Web Layout",
@@ -52,30 +55,27 @@ const skills = ref([
 	},
 ]);
 
-// let skillsSectionAnimation;
-
-const skillRefs = ref(null);
+const skillRefs = ref([]);
+let ctx;
 
 onMounted(() => {
-	// skillRefs.value.forEach((section) => {
-	// 	skillsSectionAnimation = useGsap.from(section, {
-	// 		scrollTrigger: {
-	// 			trigger: section,
-	// 			start: "top 60%",
-	// 			toggleClass: "active",
-	// 			scrub: false,
-	// 			toggleActions: "play reverse play complete",
-	// 		},
-	// 		ease: "power2.out",
-	// 		stagger: 0.4,
-	// 	});
-	// });
+	ctx = $gsap.context(() => {
+		skillRefs.value.forEach((section) => {
+			$gsap.from(section, {
+				scrollTrigger: {
+					trigger: section,
+					start: "top 80%",
+					end: "bottom 10%",
+					toggleClass: "active",
+					scrub: true,
+				},
+			});
+		});
+	});
 });
 
 onUnmounted(() => {
-	if (skillsSectionAnimation) {
-		skillsSectionAnimation.kill();
-	}
+	ctx.revert();
 });
 </script>
 
@@ -83,7 +83,7 @@ onUnmounted(() => {
 	<!--=================== skill ====================-->
 	<div class="skills">
 		<section
-			class="skills__section active"
+			class="skills__section"
 			ref="skillRefs"
 			v-for="(skill, index) in skills"
 			:key="index"
