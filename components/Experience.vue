@@ -1,4 +1,6 @@
 <script setup>
+import { ref, onMounted, onUnmounted } from "vue";
+const { $gsap } = useNuxtApp();
 const experiences = ref([
 	{
 		company: "六角學院",
@@ -22,28 +24,28 @@ const experiences = ref([
 			"公司專案類型主要為企業形象網站建置，我主要負責的部分是以 HTML、CSS 做響應式切版，使用 jQuery 做網頁互動效果，並與企劃、設計師、後端工程師合作完成專案。在專案中適時導入 Bootstrap 提升開發效率，任職期間也有經手過中大型網站的經驗。",
 	},
 ]);
-
-// let experienceSectionAnimation;
-const experienceRefs = ref(null);
+const experienceRefs = ref([]);
+let ctx;
 
 onMounted(() => {
-	// experienceRefs.value.forEach((section) => {
-	// 	experienceSectionAnimation = useGsap.from(section, {
-	// 		scrollTrigger: {
-	// 			trigger: section,
-	// 			start: "top 85%",
-	// 			toggleClass: "active",
-	// 			scrub: false,
-	// 		},
-	// 		ease: "power2.out",
-	// 	});
-	// });
+	ctx = $gsap.context(() => {
+		experienceRefs.value.forEach((section) => {
+			$gsap.from(section, {
+				scrollTrigger: {
+					trigger: section,
+					start: "top 80%",
+					end: "bottom 20%",
+					toggleClass: "active",
+					// markers: true,
+					scrub: true, // 使動畫與滾動同步
+				},
+			});
+		});
+	});
 });
 
 onUnmounted(() => {
-	// if (experienceSectionAnimation) {
-	// 	experienceSectionAnimation.kill();
-	// }
+	ctx.revert();
 });
 </script>
 
