@@ -41,7 +41,10 @@ defineExpose({
 	<section ref="heroComponent" id="heroComponent" class="section hero">
 		<div class="container">
 			<div class="hero__wrapper">
-				<HeroAvatar ref="heroAvatarRef" />
+				<section class="hero__avatar" ref="heroAvatarRef">
+					<HeroAvatar />
+				</section>
+
 				<div class="hero__content" ref="heroContentRef">
 					<h2 class="hero__title tagline">
 						Hi, I am Billy,<br />Front-End Developer.

@@ -18,18 +18,13 @@ const heroImgMouseLeave = () => {
 </script>
 
 <template>
-	<div
-		class="hero__avatar"
+	<img
+		src="~/assets/img/avatar.jpg"
+		alt="Billy Ji"
+		class="hero__img"
+		ref="heroImgRef"
 		@mousemove="heroImgMouseMove"
 		@mouseleave="heroImgMouseLeave"
-	>
-		<!-- ref="heroAvatarRef" -->
-		<img
-			src="~/assets/img/avatar.jpg"
-			alt="Billy Ji"
-			class="hero__img"
-			ref="heroImgRef"
-			:style="{ transform: heroImgTransform }"
-		/>
-	</div>
+		:style="{ transform: heroImgTransform }"
+	/>
 </template>
