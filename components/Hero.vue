@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 const { $gsap } = useNuxtApp();
 
 const heroComponent = ref(null);
@@ -8,7 +8,7 @@ const heroImgTransform = ref("translate3d(0px, 0px, 0px) rotate(0.0001deg)");
 const heroImgRef = ref(null);
 
 const heroAvatarRef = ref(null);
-// let heroImgAnimation, heroContentAnimation;
+const heroContentRef = ref(null);
 
 const heroImgMouseMove = (event) => {
 	const imgElement = heroImgRef.value.getBoundingClientRect();
@@ -23,37 +23,29 @@ const heroImgMouseLeave = () => {
 	heroImgTransform.value = "translate3d(0px, 0px, 0px) rotate(0.0001deg)";
 };
 
-onMounted(() => {
-	console.log($gsap);
+let ctx;
 
-	$gsap.from(heroAvatarRef.value, {
-		opacity: 0,
-		scale: 0.85,
-		duration: 0.8,
-		ease: "power2.out",
+onMounted(() => {
+	ctx = $gsap.context(() => {
+		$gsap.from(heroAvatarRef.value, {
+			opacity: 0,
+			scale: 0.85,
+			duration: 0.8,
+			ease: "power2.out",
+		});
+
+		$gsap.from(heroContentRef.value, {
+			opacity: 0,
+			delay: 0.2,
+			duration: 0.6,
+			x: 100,
+			ease: "power2.out",
+		});
 	});
-	// heroImgAnimation = useGsap.from(".heroImg", {
-	// 	opacity: 0,
-	// 	scale: 0.85,
-	// 	duration: 0.8,
-	// 	ease: "power2.out",
-	// });
-	// heroContentAnimation = useGsap.from(".heroContent", {
-	// 	opacity: 0,
-	// 	delay: 0.2,
-	// 	duration: 0.6,
-	// 	x: 100,
-	// 	ease: "power2.out",
-	// });
 });
 
 onUnmounted(() => {
-	// if (heroImgAnimation) {
-	// 	heroImgAnimation.kill();
-	// }
-	// if (heroContentAnimation) {
-	// 	heroContentAnimation.kill();
-	// }
+	ctx.revert();
 });
 
 defineExpose({
@@ -80,7 +72,7 @@ defineExpose({
 						:style="{ transform: heroImgTransform }"
 					/>
 				</div>
-				<div class="hero__content heroContent">
+				<div class="hero__content" ref="heroContentRef">
 					<h2 class="hero__title tagline">
 						Hi, I am Billy,<br />Front-End Developer.
 					</h2>
