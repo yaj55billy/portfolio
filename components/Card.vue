@@ -1,25 +1,13 @@
 <script setup>
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
-// const { $ScrollReveal } = useNuxtApp();
+
 defineProps({
 	cardItem: {
 		type: Object,
 	},
 });
-onMounted(() => {
-	// $ScrollReveal().reveal(".cardIn", {
-	// 	duration: 600,
-	// 	easing: "ease-in",
-	// 	// viewOffset: {
-	// 	// 	top: 60,
-	// 	// },
-	// });
-});
-
-onUnmounted(() => {
-	// $ScrollReveal().clean(".cardIn");
-});
 </script>
+
 <template>
 	<div class="card cardIn">
 		<div class="card__header">
@@ -56,17 +44,4 @@ onUnmounted(() => {
 	</div>
 </template>
 
-<style scoped>
-.card-enter-active {
-	transition: all 0.5s ease;
-}
-.card-leave-active {
-	transition: all 0.25s ease;
-}
-
-.card-enter-from,
-.card-leave-to {
-	opacity: 0;
-	transform: translateY(20px);
-}
-</style>
+<style scoped></style>

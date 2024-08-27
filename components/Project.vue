@@ -1,27 +1,24 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import Card from "./Card.vue";
+
 const projectComponent = ref(null);
 
 const projectData = ref([]);
 const filterProjectData = ref([]);
+const projectDataStatus = ref("project");
 const { data: project } = await useFetch("/api/project");
 
 projectData.value = project.value.data;
-filterProjectData.value = project.value.data;
-
-const projectDataStatus = ref("all");
+filterProjectData.value = projectData.value.filter(
+	(item) => item.type === projectDataStatus.value
+);
 
 const projectListHandle = (type) => {
-	if (type === "all") {
-		projectDataStatus.value = "all";
-		filterProjectData.value = projectData.value;
-	} else {
-		projectDataStatus.value = type;
-		filterProjectData.value = projectData.value.filter(
-			(item) => item.type === type
-		);
-	}
+	projectDataStatus.value = type;
+	filterProjectData.value = projectData.value.filter(
+		(item) => item.type === type
+	);
 };
 
 defineExpose({
@@ -36,42 +33,43 @@ defineExpose({
 			<div class="section__header">
 				<h2 class="section__title">PROJECT</h2>
 			</div>
-			<div class="project__content">
-				<div class="project__info">
-					<div class="project__info__header">
-						<a
-							class="project__info__btn h4"
-							:class="{ active: projectDataStatus === 'all' }"
-							@click="projectListHandle('all')"
-							>全部</a
-						>
-						<a
-							class="project__info__btn h4"
-							:class="{ active: projectDataStatus === 'project' }"
-							@click="projectListHandle('project')"
-							>專案</a
-						>
-						<a
-							class="project__info__btn h4"
-							:class="{ active: projectDataStatus === 'side-project' }"
-							@click="projectListHandle('side-project')"
-							>作品</a
-						>
-					</div>
-					<div class="project__info__main">
-						<div class="project__info__list">
-							<template
-								v-for="cardItem in filterProjectData"
-								:key="cardItem.id"
-							>
-								<Card :cardItem="cardItem" />
-							</template>
-						</div>
-					</div>
-				</div>
+			<div class="project__info">
+				<a
+					class="project__btn h4"
+					:class="{ active: projectDataStatus === 'project' }"
+					@click="projectListHandle('project')"
+					>專案</a
+				>
+				<a
+					class="project__btn h4"
+					:class="{ active: projectDataStatus === 'side-project' }"
+					@click="projectListHandle('side-project')"
+					>Side Project</a
+				>
+				<TransitionGroup name="tab-change">
+					<template v-for="cardItem in filterProjectData" :key="cardItem.id">
+						<section class="project__section" ref="projectSectionRefs">
+							<Card :cardItem="cardItem" />
+						</section>
+					</template>
+				</TransitionGroup>
 			</div>
 		</div>
 	</section>
 </template>
 
-<style></style>
+<style>
+.tab-change-enter-active {
+	transition: all 0.3s ease-in;
+}
+
+.tab-change-leave-active {
+	transition: all 0.6s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.tab-change-enter-from,
+.tab-change-leave-to {
+	transform: translateY(20px);
+	opacity: 0;
+}
+</style>

@@ -76,7 +76,7 @@ export default defineEventHandler((event) => {
 			id: "fitspace-vue",
 			title: "FitSpace 健身空間 (Vue)",
 			type: "side-project",
-			link: "https://www.billyji.com/vue_fitness/#/",
+			link: "https://yaj55billy.github.io/vue_fitness/#/",
 			content: "使用 Vue CLI 3 建置的虛構電商網站(包含前後台)。",
 			pics: [
 				{ id: "fitspace-vue-pic1", path: "https://i.imgur.com/ktFryuV.jpg" },
@@ -284,7 +284,7 @@ export default defineEventHandler((event) => {
 			id: "react-todo",
 			title: "React TodoList",
 			type: "side-project",
-			link: "https://www.billyji.com/react-workshop-week4-todolist/#/signup",
+			link: "https://yaj55billy.github.io/react-workshop-week4-todolist/#/signup",
 			content: "使用 React 串接 API，做出 TodoList CRUD",
 			pics: [
 				{
