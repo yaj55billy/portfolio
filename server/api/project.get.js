@@ -1,6 +1,22 @@
 export default defineEventHandler((event) => {
 	const data = [
 		{
+			id: "gush-energy",
+			title: "湧業能源 GUSH ENERGY",
+			type: "project",
+			link: "https://www.gush-energy.com/",
+			content: "使用 Nuxt3 建置湧業能源官方網站。",
+			pics: [
+				{ id: "gush-energy-pic1", path: "https://i.imgur.com/GlKogQY.jpg" },
+				{ id: "gush-energy-pic2", path: "https://i.imgur.com/navyGPv.jpg" },
+			],
+			tags: [
+				{ id: "gush-energy-tag1", value: "Nuxt" },
+				{ id: "gush-energy-tag2", value: "SCSS" },
+				{ id: "gush-energy-tag3", value: "Pinia" },
+			],
+		},
+		{
 			id: "billyji",
 			title: "筆力 - 探索與記錄的產地（Blog）",
 			type: "side-project",
