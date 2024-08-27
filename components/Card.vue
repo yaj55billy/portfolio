@@ -31,7 +31,7 @@ onUnmounted(() => {
 					></div>
 				</slide>
 				<template #addons="{ slidesCount }">
-					<Navigation v-if="slidesCount > 1" />
+					<Pagination v-if="slidesCount > 1" />
 				</template>
 			</carousel>
 		</div>
