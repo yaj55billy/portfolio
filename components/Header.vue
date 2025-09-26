@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref } from 'vue';
 const props = defineProps({
 	hero: {
 		type: Object,
@@ -73,7 +73,7 @@ defineExpose({
 						<li class="nav__item">
 							<a
 								class="nav__link--outer"
-								href="https://www.billyji.com/"
+								href="https://yaj55billy.github.io/"
 								target="_blank"
 								>BLOG</a
 							>
